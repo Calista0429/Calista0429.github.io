@@ -4,15 +4,9 @@ icon: fas fa-info-circle
 order: 4
 ---
 
----
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 4
----
 
-# 👋 Hi there!
+## 👋 Hi there!
 
-Welcome to my personal site! I'm glad you're here. Below is a bit about who I am and what I do.
 
 ---
 
