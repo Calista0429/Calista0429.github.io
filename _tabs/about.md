@@ -43,9 +43,3 @@ Here are a few things I love doing outside of research:
 - 🏀 **Basketball** 
 - 🏸️ **Badminton** 
 - 🎬 **Films&Episodes** 
-
-
----
-
-Feel free to [reach out](/contact/) if you'd like to chat or collaborate!
-
