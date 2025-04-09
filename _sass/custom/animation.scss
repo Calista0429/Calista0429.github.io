@@ -1,0 +1,242 @@
+/* background */
+
+@keyframes infirot {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+  
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+}
+  
+.icon-loading1 {
+    display: inline-block;
+    animation: infirot 1s linear infinite;
+    -webkit-animation: infirot 1s linear infinite;
+}
+
+@function random_range($min, $max) {
+    $rand: random();
+    $random_range: $min + floor($rand * (($max - $min) + 1));
+    @return $random_range;
+}
+  
+#animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  
+    @keyframes animate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            border-radius: 0;
+        }
+        100% {
+            transform: translateY(-1000px) rotate(720deg);
+            opacity: 0;
+            border-radius: 50%;
+        }
+    }
+  
+    @media all and (min-width: 1024px) {
+        .animation-circle {
+            position: absolute;
+            left: var(--circle-left);
+            bottom: -300px;
+            display: block;
+            background: var(--circle-background);
+            width: var(--circle-side-length);
+            height: var(--circle-side-length);
+            animation: animate 20s linear infinite;
+            animation-duration: var(--circle-time);
+            animation-delay: var(--circle-delay);
+            pointer-events: none;
+    
+            @for $i from 0 through 50 {
+                &:nth-child(#{$i}) {
+                    --circle-left: #{random_range(0%, 100%)};
+                    --circle-background: rgba(#{random_range(0, 255)}, #{random_range(0, 255)}, #{random_range(0, 255)}, var(--animated-block-alpha));
+                    --circle-side-length: #{random_range(30px, 120px)};
+                    --circle-time: #{random_range(15s, 50s)};
+                    --circle-delay: #{random_range(0s, 15s)};
+                }
+            }
+        }
+    }
+  
+    @media all and (max-width: 1023px) {
+        .animation-circle {
+            display: none;
+        }
+    }
+}
+
+/* progress bar */
+
+/*
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: #3b82f6;
+    z-index: 1000;
+    transition: width 0.25s;
+}
+*/
+
+/* curtain */
+
+.curtain {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: var(--curtain-color);
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 50%
+    );
+    background-size: 100% 2px;
+    z-index: 999;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#curtain-left { 
+    left: 0;
+    animation-name: openLeftCurtain;
+}
+
+#curtain-right {
+    right: 0;
+    animation-name: openRightCurtain;
+}
+
+@keyframes openLeftCurtain {
+    0% { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(-100%); 
+        opacity: 0.9;
+    }
+}
+
+@keyframes openRightCurtain {
+    0% { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% { 
+        transform: translateX(100%); 
+        opacity: 0.9;
+    }
+}
+
+.no-visited .curtain {
+    display: block;
+}
+
+/* category card */
+
+.card.categories {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* post card */
+
+.card-wrapper {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* typed-text */
+
+#typing-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--curtain-color);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 5rem;
+    text-align: center;
+}
+
+#typed-text { 
+    position: fixed;
+    display: inline;
+    color: var(--typed-text-color);
+    text-shadow: 
+        0 0 5px var(--typed-text-color),
+        0 0 10px var(--typed-text-color),
+        0 0 15px var(--typed-text-color),
+}
+
+#typing-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 50%
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+}
+
+/* post content */
+
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.about-page {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
