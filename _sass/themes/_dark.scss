@@ -300,4 +300,13 @@
   .highlight .ss {
     color: #90a959;
   }
+
+  .me-2 {
+    color: var(--heading-color);
+    font-weight: 330;
+    font-family: Lato, "Microsoft Yahei", sans-serif;
+    text-shadow: 0 0 2px var(--heading-color),
+                 0 0 6px var(--heading-color);
+}
+
 }
