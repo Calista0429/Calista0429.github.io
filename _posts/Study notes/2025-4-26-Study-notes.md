@@ -2,7 +2,7 @@
 title: Recommendation System (Part 1)
 date: 2025-04-19 22:18:00 
 categories: [Study notes]
-tags: [recommendation_system]
+tags: [Recommendation System]
 math: true
 comments: true
 ---
